@@ -11,25 +11,32 @@ def binary_search(nums, target):
     # loop will run until low becomes greater than high
     while low <= high:
         mid = (low + high) // 2
+        print(">> Target:", target, "Mid:", nums[mid])
 
         # Check if target is present at mid
         if nums[mid] == target:
+            print(">> Target found at index:", mid)
+            print(">>     High: ", high, "Mid: ", mid, "Low: ", low)
             return mid
         
         # If target is greater, ignore lower half
         elif nums[mid] > target:
+            print(">> Target (", target, ")", "is less than mid: (", nums[mid], ")")
             high = mid - 1
+            print(">>     High: ", high, "Mid: ", mid, "Low: ", low)
         
-        # If target is smaller, ignore upper half
+        # If target is lower, ignore upper half
         else:
+            print(">> Target (", target, ")", "is greater than mid: (", nums[mid], ")")
             low = mid + 1
+            print(">>     High: ", high, "Mid: ", mid, "Low: ", low)
     
     # If we reach here, then the element was not present
     return -1
 
 # Test Array
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-target = 8
+target = 11
 
 # Function Call
 result = binary_search(nums, target)
