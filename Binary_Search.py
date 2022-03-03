@@ -1,5 +1,8 @@
+# Iterative Binary Search Function
+# Returns index of x in a given array 'nums' if present, else -1
+
 # Function to perform binary search
-def binary_search(nums, x):
+def binary_search(nums, target):
 
     # Initialize 'low' and 'high'
     low = 0
@@ -9,15 +12,15 @@ def binary_search(nums, x):
     while low <= high:
         mid = (low + high) // 2
 
-        # Check if x is present at mid
-        if nums[mid] == x:
+        # Check if target is present at mid
+        if nums[mid] == target:
             return mid
         
-        # If x is greater, ignore left half
-        elif nums[mid] < x:
+        # If target is greater, ignore lower half
+        elif nums[mid] > target:
             high = mid - 1
         
-        # If x is smaller, ignore right half
+        # If target is smaller, ignore upper half
         else:
             low = mid + 1
     
@@ -25,11 +28,11 @@ def binary_search(nums, x):
     return -1
 
 # Test Array
-nums = [1, 20, 300, 40, 500, 60, 700, 80, 900, 10]
-x = 80
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 8
 
 # Function Call
-result = binary_search(nums, x)
+result = binary_search(nums, target)
 
 if result != -1:
     print("Element is present at index", result)
