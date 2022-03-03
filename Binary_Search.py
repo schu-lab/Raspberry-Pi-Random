@@ -36,7 +36,7 @@ def binary_search(nums, target):
 
 # Test Array
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-target = 11
+target = 1
 
 # Function Call
 result = binary_search(nums, target)
